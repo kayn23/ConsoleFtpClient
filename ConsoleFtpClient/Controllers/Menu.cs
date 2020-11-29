@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ConsoleFtpClient.Controllers
 {
@@ -17,7 +18,7 @@ namespace ConsoleFtpClient.Controllers
                 command = parse[0];
                 if (parse.Length > 1)
                 {
-                    arg = parse[1];
+                    arg = String.Join(" ", parse.Skip(1).Take(100).ToArray());
                 }
             }
             else

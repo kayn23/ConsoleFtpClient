@@ -20,6 +20,7 @@ namespace ConsoleFtpClient.Controllers
                     ListShow();
                     break;
                 case "cd":
+                    Console.WriteLine(arg);
                     ChangeDirectory(arg);
                     break;
                 case "mkdir":
@@ -27,6 +28,9 @@ namespace ConsoleFtpClient.Controllers
                     break;
                 case "rmdir":
                     RemoveDirectory(arg);
+                    break;
+                case "rm":
+                    RemoveFile(arg);
                     break;
                 default:
                     Console.WriteLine("Undefined command");
@@ -36,7 +40,8 @@ namespace ConsoleFtpClient.Controllers
             }
         }
 
-// FIXME Настройить прием значение с пробелами
+
+        // FIXME Настройить прием значение с пробелами
         protected override void RenderHelpInfo()
         {
             Console.WriteLine("local - Switch to local machine");
@@ -91,17 +96,15 @@ namespace ConsoleFtpClient.Controllers
         
         private void RemoveDirectory(string s)
         {
-            try
-            {
                 State.Client.RemoveDirectory(
                     String.Join("/", State.FtpPath) + "/" + s
                 );
                 ListShow();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error");
-            }
+        }
+        private void RemoveFile(string s)
+        {
+            State.Client.DeleteFile(String.Join("/", State.FtpPath) + "/" + s);
+            ListShow();
         }
 
         #endregion
