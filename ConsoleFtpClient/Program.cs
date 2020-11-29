@@ -1,4 +1,5 @@
 ﻿using System;
+using ConsoleFtpClient.Controllers;
 
 namespace ConsoleFtpClient
 {
@@ -6,7 +7,8 @@ namespace ConsoleFtpClient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("FTP Client");
+            new MainMenu();
         }
     }
 }
