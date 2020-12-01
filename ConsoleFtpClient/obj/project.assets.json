@@ -1,80 +1,11 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
-        "type": "package"
-      },
-      "NStack.Core/0.15.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NStack.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NStack.dll": {}
-        }
-      },
-      "Terminal.Gui/1.0.0-pre.6": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies": "1.0.0",
-          "NStack.Core": "0.15.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Terminal.Gui.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Terminal.Gui.dll": {}
-        }
-      }
-    }
+    ".NETCoreApp,Version=v3.1": {}
   },
-  "libraries": {
-    "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
-      "sha512": "7D2TMufjGiowmt0E941kVoTIS+GTNzaPopuzM1/1LSaJAdJdBrVP0SkZW7AgDd0a2U1DjsIeaKG1wxGVBNLDMw==",
-      "type": "package",
-      "path": "microsoft.netframework.referenceassemblies/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
-        "microsoft.netframework.referenceassemblies.nuspec"
-      ]
-    },
-    "NStack.Core/0.15.0": {
-      "sha512": "+xmg3Y3YFelSiJdNKaCV/XIH5iu7jtGq0bpXlYi6PCPz8jK6Q7wuYrEQBwXXctLRftImAX8cX6pLYdhrPsH92w==",
-      "type": "package",
-      "path": "nstack.core/0.15.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/NStack.dll",
-        "nstack.core.0.15.0.nupkg.sha512",
-        "nstack.core.nuspec"
-      ]
-    },
-    "Terminal.Gui/1.0.0-pre.6": {
-      "sha512": "jgy8NNsJFf3ViXd+LdsYGbLMarEA4xTCrNIumxCQ2ZdBYFiUWWMKeu6hsSudEkisRxoiTlJY9uruMvV2hro8yw==",
-      "type": "package",
-      "path": "terminal.gui/1.0.0-pre.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net472/Terminal.Gui.dll",
-        "lib/net472/Terminal.Gui.xml",
-        "lib/net5.0/Terminal.Gui.dll",
-        "lib/net5.0/Terminal.Gui.xml",
-        "lib/netstandard2.0/Terminal.Gui.dll",
-        "lib/netstandard2.0/Terminal.Gui.xml",
-        "terminal.gui.1.0.0-pre.6.nupkg.sha512",
-        "terminal.gui.nuspec"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "Terminal.Gui >= 1.0.0-pre.6"
-    ]
+    ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
     "C:\\Users\\anatoly\\.nuget\\packages\\": {}
@@ -114,12 +45,6 @@
     "frameworks": {
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
-        "dependencies": {
-          "Terminal.Gui": {
-            "target": "Package",
-            "version": "[1.0.0-pre.6, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",

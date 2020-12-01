@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using ConsoleFtpClient.Controllers;
-using ConsoleFtpClient.GUI;
-using Terminal.Gui;
+using ConsoleFtpClient.Core;
+using ConsoleFtpClient.Model;
 
 namespace ConsoleFtpClient
 {
@@ -9,27 +11,19 @@ namespace ConsoleFtpClient
     {
         static void Main(string[] args)
         {
-            Application.Init (); 
-            var top = Application.Top;
-            var mainWindow = new Window("FtpClient") 
-            { 
-                X = 0, 
-                Y = 0,
-                Width = Dim.Fill (), 
-                Height = Dim.Fill () 
-            };
-            var menu = new MenuBar (new MenuBarItem [] {
-                new MenuBarItem ("_File", new MenuItem [] {
-                    new MenuItem ("_Quit", "", () =>
-                    {
-                        Application.RequestStop();
-                        Environment.Exit(0);
-                    })
-                }),
-            });
-            top.Add(menu);
-            top.Add(mainWindow);
-            LoginController.Init(mainWindow, top);
+            var a  = new LoginController();
+            a.LoginSuccess += AOnLoginSuccess;
+            a.ReadData();
+        }
+
+        private static void AOnLoginSuccess((DataController, DataController) obj)
+        {
+            State.FtpController = obj.Item1;
+            obj.Item1.Exit += () => Environment.Exit(0);
+            obj.Item2.Exit += () => Environment.Exit(0);
+            State.FtpController = obj.Item1;
+            State.LocalController = obj.Item2;
+            obj.Item1.WaitInput();
         }
     }
 }

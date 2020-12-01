@@ -33,5 +33,13 @@ namespace ConsoleFtpClient.Service
             }
             return input.ToString();
         }
+        
+        public static void Error(string s)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error " + s);
+            Console.ResetColor();
+            Console.Read();
+        }
     }
 }

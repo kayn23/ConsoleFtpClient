@@ -1,52 +1,99 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using ConsoleFtpClient.Core;
-using ConsoleFtpClient.GUI;
-using Terminal.Gui;
+using ConsoleFtpClient.Model;
+using ConsoleFtpClient.Service;
 
 namespace ConsoleFtpClient.Controllers
 {
     public class LoginController
     {
-        private readonly View _parent;
-        private readonly LoginPage _login;
-        private readonly Toplevel _top;
-        private LoginController(View parent, Toplevel top)
-        {
-            _parent = parent;
-            _top = top;
-            _login = new LoginPage(parent);
-            // _login.OnExit += () => Application.RequestStop();
-            _login.OnLogin += Login;
-            _login.OnExit += _login.Close;
-            _parent.Add(_login);
-            Application.Run((Toplevel)_parent);
-        }
-        public void Login(string ip, string login, string pass)
+        public event Action<(DataController, DataController)> LoginSuccess;
+        void Login(string ip, string login, string pass)
         {
             DataController ftpClient = new FileController(new FtpClient
                 {
                     Host = ip,
                     UserName = login,
                     Password = pass
-                });
+            }, WorkDir.Server);
             try
             {
                 var a = ftpClient.List();
-                _login.Close();
-                // TODO Инициализация локального клиента тут
-                new MainWindowController(_parent, ftpClient, ftpClient);
-                Application.Run(_top);
+                DataController localClient = new FileController(new LocalClient()
+                {
+                    Host = ip,
+                    UserName = login,
+                    Password = pass
+                }, WorkDir.Local);
+                localClient.Path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
+                    .Split("\\").ToList();
+                Console.Clear();
+                LoginSuccess((ftpClient, localClient));
             }
             catch
             {
-                MessageBox.ErrorQuery(25, 5, "Error", "Incorrect connection data.", "Ok");
+                Console.Clear();
+                ReadData();
             }
         }
 
-        public static void Init(View parent, Toplevel top)
+        public void ReadData()
         {
-            new LoginController(parent, top);
+            #if !DEBUG
+                Console.Write("Введите адресс сервера: ");
+                var ip = Console.ReadLine();
+                Console.Write("Введите логин: ");
+                var login = Console.ReadLine();
+                Console.Write("Введите пароль: ");
+                var password = ConsoleService.GetPassword();
+            #else
+                var ip = "127.0.0.1";
+                var login = "student";
+                var password = "student";
+            #endif
+
+            if (Validation(ip, login))
+            {
+                Login(ip, login, password);
+            }
+            else
+            {
+                Console.Clear();
+                ReadData();
+            }
+        }
+
+        private bool Validation(string ip, string login)
+        {
+            if (ip.Length == 0)
+            {
+                ConsoleService.Error("Ip cannot be empty.");
+                return false;
+            }
+            // string IpPattern = @"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}";
+            // if (!Regex.IsMatch(ip, IpPattern))
+            // {
+            //     ConsoleService.Error("IP of the wrong format.");
+            //     return false;
+            // } 
+            if (login.Length == 0)
+            {
+                ConsoleService.Error("Login cannot be empty.");
+                return false;
+            }
+
+            return true;
+        }
+
+
+        public static void Init()
+        {
+            new LoginController();
         }
     }
 }
