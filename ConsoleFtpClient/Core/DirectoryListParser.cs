@@ -56,6 +56,10 @@ namespace ConsoleFtpClient.Core
         private List<FileStruct> GetList(string datastring)
         {
             List<FileStruct> myListArray = new List<FileStruct>();
+            myListArray.Add(new FileStruct()
+            {
+                Name = ".."
+            });
             string[] dataRecords = datastring.Split('\n');
             //Получаем стиль записей на сервере
             FileListStyle _directoryListStyle = GuessFileListStyle(dataRecords);
@@ -65,6 +69,7 @@ namespace ConsoleFtpClient.Core
                 {
                     FileStruct f = new FileStruct();
                     f.Name = "..";
+                    // TODO Доработать добавление ..
                     switch (_directoryListStyle)
                     {
                         case FileListStyle.UnixStyle:

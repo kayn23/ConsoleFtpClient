@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Net;
 using System.IO;
+using ConsoleFtpClient.Controllers;
 
 namespace ConsoleFtpClient.Core
 {
-    public class FtpClient
+    public class FtpClient: IClient
     {
         //поля
         //поле для хранения имени фтп-сервера

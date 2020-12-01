@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "W+dcsdxm5fEwHSUeCvsjbuvoDUUJ1CAOWzWbV5VK6Dx4L724Hp5BaH8e7OLgYzV5loovFicGJvqUX1oVmdAC5A==",
+  "dgSpecHash": "Y0pJ+pBLQs96AHnYFDKpRyJR9kdAW8EG2e52PKdIbM3PMDXC2g3X7TQe7hTHLP9hJr4tZI8df0KvEf5Qxr5M1w==",
   "success": true,
   "projectFilePath": "C:\\Users\\anatoly\\Desktop\\Universe\\3.1\\ComputerNetwork\\CP\\ConsoleFtpClient\\ConsoleFtpClient\\ConsoleFtpClient.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\anatoly\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\anatoly\\.nuget\\packages\\nstack.core\\0.15.0\\nstack.core.0.15.0.nupkg.sha512",
+    "C:\\Users\\anatoly\\.nuget\\packages\\terminal.gui\\1.0.0-pre.6\\terminal.gui.1.0.0-pre.6.nupkg.sha512",
     "C:\\Users\\anatoly\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.9\\microsoft.netcore.app.host.win-x64.3.1.9.nupkg.sha512"
   ],
   "logs": []
