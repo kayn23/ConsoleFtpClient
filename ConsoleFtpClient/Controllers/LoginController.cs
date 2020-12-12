@@ -38,6 +38,9 @@ namespace ConsoleFtpClient.Controllers
             catch
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ошибка при подключение. Проверьте введеные данные.");
+                Console.ResetColor();
                 ReadData();
             }
         }

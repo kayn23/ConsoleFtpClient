@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anatoly\\Desktop\\Universe\\3.1\\ComputerNetwork\\CP\\ConsoleFtpClient\\ConsoleFtpClient\\ConsoleFtpClient.csproj",
+      "projectUniqueName": "C:\\Users\\anatoly\\Desktop\\Universe\\3.1\\ComputerNetwork\\ConsoleFtpClient\\ConsoleFtpClient\\ConsoleFtpClient.csproj",
       "projectName": "ConsoleFtpClient",
-      "projectPath": "C:\\Users\\anatoly\\Desktop\\Universe\\3.1\\ComputerNetwork\\CP\\ConsoleFtpClient\\ConsoleFtpClient\\ConsoleFtpClient.csproj",
+      "projectPath": "C:\\Users\\anatoly\\Desktop\\Universe\\3.1\\ComputerNetwork\\ConsoleFtpClient\\ConsoleFtpClient\\ConsoleFtpClient.csproj",
       "packagesPath": "C:\\Users\\anatoly\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anatoly\\Desktop\\Universe\\3.1\\ComputerNetwork\\CP\\ConsoleFtpClient\\ConsoleFtpClient\\obj\\",
+      "outputPath": "C:\\Users\\anatoly\\Desktop\\Universe\\3.1\\ComputerNetwork\\ConsoleFtpClient\\ConsoleFtpClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\anatoly\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -136,6 +136,12 @@ namespace ConsoleFtpClient.Controllers
                 return;
             }
 
+            if (item.Name == null)
+            {
+                ConsoleService.Error("нет такого элемента");
+                return;
+            }
+
             if (item.IsDirectory)
             {
                 try
